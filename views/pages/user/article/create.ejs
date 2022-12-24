@@ -23,16 +23,6 @@
                         
                     </textarea>
 
-                    <select name="category" id="" class="form-control">
-                        <% categories.forEach(category => { %>
-                            <option value="<%= category.id %>" name="categoryId">
-                                <%= category.title %>
-                            </option>
-                        <% }) %>
-                    </select>
-
-                    <input type="hidden" name="userId" value="<%= use.id %>">
-                    
                     <button type="submit" class="button-submit">Cadastrar</button>
                 </form>
             </div>

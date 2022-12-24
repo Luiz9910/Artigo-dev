@@ -56,8 +56,9 @@ router.get("/usuario/MeusArtigos", adminAuth, (req, res) => {
     })
 })
 
-router.get("/usuario/artigo/criar", adminAuth, (req, res) => {
+router.get("/usuario/artigo/new/criar", adminAuth , (req, res) => {
     let user = req.session.user.email
+
     User.findOne({
         where: {email: user}
     }).then(usar => {
