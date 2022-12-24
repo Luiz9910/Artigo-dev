@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/css/one.css">
+</head>
+<body>
+    <%- include("../../../partials/header") %>
+    <main class="container">
+        <div>
+            <div class="card">
+                <div class="categoria card-header">
+                    <h2>Categorias</h2>
+                    <a href="/usuario/categoria/criar" class="button">Criar nova Categoria</a>
+                </div>
+            </div>
+            <br>
+            <div>
+                <table  class="table table-bordered">
+                    <thead>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Ações</th>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach(category => { %>
+                            <tr>
+                                <td><%= category.id %></td>
+                                <td><%= category.title %></td>
+                                <td><%= category.slug %></td>
+                                <td><a href="/usuario/categoria/edit/<%=category.id%>" class="btn btn-warning ">Editar</a> 
+
+                                    <form action="/usuario/categoria/deletar" method="post" onsubmit="confirmDelete(event, this)" class="deletar-form">
+                                        <input type="hidden" name="id" value="<%= category.id %>">
+                                        <button href="" class="btn btn-danger" style="text-decoration: none;">Deletar</button>
+                                    </form>
+                                </td>    
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+    function confirmDelete(event, form) {
+        event.preventDefault();
+        let decision = confirm("Você quer deletar esta categoria")
+
+        if (decision) {
+            form.submit();
+        } else {
+            console.log("Não deletar")
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/css/one.css">    
+</head>
+<body>
+
+    <%- include("../partials/homebar") %>
+    <main class="container">
+        <% articles.forEach(article => { %>
+            <div class="card">
+                <div class="card-header">
+                    <%= article.title %>
+                </div>
+                <div class="card-body">
+                    <a href="/ler/artigo/<%= article.id %>" class="button link-espace">Ler artigo</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+        <a href="/artigos/page/1" style="float:right" class="btn btn-success">Próximo</a>
+    </main>
+</body>
+
+</script>
+</html>

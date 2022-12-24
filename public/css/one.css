@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+* {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007BFF;
+}
+
+header a, header li{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+header h2, header img{
+    margin-left: 10px;
+}
+
+header ul {
+    display: flex;
+}
+
+main {
+    margin-top: 30px;
+}
+
+main div.categoria:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a.button{
+    text-decoration: none;
+    list-style: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+a.button {
+    background-color: #0db832f5;
+    color: white;
+}
+
+.button:hover {
+    transition: 1s;
+    background-color: #127c29;
+}
+
+.button-submit {
+    text-decoration: none;
+    list-style: none;
+    color: white; 
+    padding: 8px 15px;
+    background-color: #0db832f5;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+    margin-top: 20px;
+}
+
+.button-submit:hover {
+    transition: 1s;
+    background-color: #127c29;
+}
+
+.login {    
+    padding: 10px 20px;
+    background-color: #0db832;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.login:hover {
+    transition: 1s;
+    background-color: #0db8329d;
+    color: white;
+}
+
+.cadastro-main {
+    margin-top: 80px;
+}
+
+label.listaDeInput {
+    margin-top: 20px;
+}
+
+form {
+    display: inline;
+}
+
+select{
+    margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+    td a.edita{    
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) { 
+    .slug {
+        display: none;
+    }
+}

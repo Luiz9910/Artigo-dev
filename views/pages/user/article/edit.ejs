@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar artigo</title>
+    <link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/css/one.css">
+</head>
+<body>
+    <%- include("../../../partials/header") %>
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Edição de artigo</h2>
+            </div>
+            <div class="card-body">
+                <form action="/artigo/atualizar" method="post">
+
+                    <input type="text" name="title" id="" class="form-control" placeholder="Defina o título da categoria" value="<%= article.title %>" required>
+                    <br>
+                    <textarea name="body" id="article" cols="30" rows="10" placeholder="Escreva o artigo aqui!" required >
+                        <%- article.body %>
+                    </textarea>
+
+                    <select name="categoryId" id="" class="form-control">
+                        <% categories.forEach(category => { %>
+                            <% if (category.id == article.categoryId) { %>
+                                <option selected value="<%= category.id %>" name="categoryId" >
+                                    <%= category.title %>
+                                </option>
+                            <% }else { %>
+                                <option value="<%= category.id %>" name="categoryId" >
+                                    <%= category.title %>
+                                </option>
+                            <% } %>
+                        <% }) %>
+                    </select>
+
+                    <input type="hidden" name="id" value="<%= article.id %>" >
+                    <button type="submit" class="button-submit">Confirmar alteração</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        language: "pt_BR" ,  
+        selector: '#article',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss'
+      });
+  </script>
+</html>

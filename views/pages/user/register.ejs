@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="http://localhost:3000/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/css/one.css">    
+</head>
+<body>
+    <%- include("../../partials/homebar") %>
+    <main class="container cadastro-main">
+        <div class="card">
+            <div class="card-header">
+                <h2>Cadastro</h2>
+            </div>
+            <div class="card-body">
+                <form action="/cadastro/salvar" method="post">
+                    <label for="Email">Email</label>
+                    <input type="email" name="email" id="Email" class="form-control" placeholder="Digite seu email" required>
+                    <label for="Password" class="listaDeInput">Senha</label>
+                    <input type="password" name="password" id="Password" class="form-control" placeholder="Digite sua senha" required minlength="">
+                    <button type="submit" class="button-submit btn-block">
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
